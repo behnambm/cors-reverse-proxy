@@ -24,9 +24,24 @@ class MyProxy(server.BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Method', 'POST, GET, OPTIONS')
         self.send_header('Content-Type', 'application/json')
         self.end_headers()
-        resp = requests.get('http://localhost:8000' + self.path)
-        self.wfile.write(json.dumps(resp.json()).encode(encoding='utf_8'))
 
+        if self.path == '/api/get-count/':
+            # if user wants to get `count` value
+            # this will inject a new header `Authorization` to headers
+            headers = {
+                'Authorization': '123456',
+            }
+            resp = requests.get(
+                url='http://localhost:8000/api/get-count/',
+                headers=headers,
+            )
+            self.wfile.write(json.dumps(resp.json()).encode('utf-8'))
+
+        else:
+            resp = requests.get(
+                'http://localhost:8000' + self.path,
+            )
+            self.wfile.write(json.dumps(resp.json()).encode('utf-8'))
 
     def do_POST(self):
         self.send_response(200)
