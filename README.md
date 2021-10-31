@@ -22,6 +22,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Run Django API
 
+start your `redis-server` on `127.0.0.1:6379`
+
 ```bash
 cd backend
 
