@@ -24,7 +24,7 @@ class MyProxy(server.BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Method', 'POST, GET, OPTIONS')
         self.send_header('Content-Type', 'application/json')
         self.end_headers()
-        resp = requests.get('http://localhost:8000' + self.path, headers=headers)
+        resp = requests.get('http://localhost:8000' + self.path)
         self.wfile.write(json.dumps(resp.json()).encode(encoding='utf_8'))
 
 
