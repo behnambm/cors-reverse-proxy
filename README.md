@@ -1,6 +1,8 @@
 # cors-reverse-proxy
 
-A simple reverse proxy in python to handle CORS headers & pre-flight requests
+A simple reverse proxy in python to handle CORS headers & pre-flight requests.
+
+And inject `Authorization` header to requests.
 
 <br>
 
