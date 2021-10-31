@@ -12,11 +12,7 @@ r.set('count', 1)
 
 class Echo(APIView):
     def get(self, request):
-        return Response({'msg': 'hello world 1'})
-
-class Echo2(APIView):
-    def get(self, request):
-        return Response({'msg': 'hello world 2'})
+        return Response({'msg': 'hello world'})
 
 
 class AddOne(APIView):

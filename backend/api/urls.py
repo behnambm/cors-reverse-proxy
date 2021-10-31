@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path('echo/', views.Echo.as_view()),
-    path('echo2/', views.Echo2.as_view()),
 
     path('add-one/', views.AddOne.as_view()),
     path('get-count/', views.GetCount.as_view()),
