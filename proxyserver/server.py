@@ -46,6 +46,9 @@ class MyProxy(server.BaseHTTPRequestHandler):
     def do_POST(self):
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Max-Age', '86400')
+        self.send_header('Access-Control-Allow-Method', 'POST, GET, OPTIONS')
         self.end_headers()
 
         if self.path == '/api/add-one/':
