@@ -6,6 +6,12 @@ And inject `Authorization` header to requests.
 
 <br>
 
+## Screenshot
+
+![*_022](https://user-images.githubusercontent.com/26994700/139605182-2cafb92c-3c5b-4357-a1eb-973069e398ce.png)
+
+<br>
+
 ## Run Next.js app
 
 First, run the development server:
