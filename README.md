@@ -48,18 +48,18 @@ This server will be listening on port `9090` & redirect all get requests to `htt
 
 `/api/echo/`
 
-![echo](https://user-images.githubusercontent.com/26994700/139604545-7f2154a9-b551-44b7-9d94-ecb5f1152727.png)
+![echo](https://user-images.githubusercontent.com/26994700/139604723-4ea95003-c4e0-47b5-9302-e2fcb19e21b7.png)
 
 ---
 
 `/api/get-count/`
 
-![get-count](https://user-images.githubusercontent.com/26994700/139604552-90cea5c3-a1ff-4536-a023-dbe305616181.png)
+![get-count](https://user-images.githubusercontent.com/26994700/139604728-1c7586d6-a5ca-4051-ae40-ca8f4a46d459.png)
 
 ---
 
 `/api/add-one/`
 
-![increase-count](https://user-images.githubusercontent.com/26994700/139604554-f36bb44c-fdbf-455a-b61e-97b47d8672ef.png)
+![increase-count](https://user-images.githubusercontent.com/26994700/139604736-68a12618-b285-477f-8244-02bbd2cdc98d.png)
 
 
