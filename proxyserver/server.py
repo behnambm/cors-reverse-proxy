@@ -45,6 +45,8 @@ class MyProxy(server.BaseHTTPRequestHandler):
 
     def do_POST(self):
         self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
 
         if self.path == '/api/add-one/':
             # if user wants to increase `count` by one
@@ -52,8 +54,6 @@ class MyProxy(server.BaseHTTPRequestHandler):
             headers = {
                 'Authorization': '123456',
             }
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
             resp = requests.post(
                 url='http://localhost:8000/api/add-one/',
                 headers=headers,
@@ -61,8 +61,6 @@ class MyProxy(server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(resp.json()).encode('utf-8'))
 
         else:
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
             resp = requests.post(
                 'http://localhost:8000' + self.path,
             )
