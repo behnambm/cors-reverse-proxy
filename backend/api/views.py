@@ -37,3 +37,19 @@ class AddOne(APIView):
             status=status.HTTP_403_FORBIDDEN,
         )
 
+
+class GetCount(APIView):
+    def get(self, request):
+        # some key to determine that the request is authorized
+        auth_key = '123456'
+
+        key = request.headers.get('Authorization')
+
+        if key and key == auth_key:
+            count = int(r.get('count').decode())
+            return Response({'count': count})
+
+        return Response(
+            {'message': 'you are not authorized'}, 
+            status=status.HTTP_403_FORBIDDEN,
+        )
