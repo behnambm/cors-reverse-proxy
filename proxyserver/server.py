@@ -24,9 +24,34 @@ class MyProxy(server.BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Method', 'POST, GET, OPTIONS')
         self.send_header('Content-Type', 'application/json')
         self.end_headers()
-        resp = requests.get('http://localhost:8000' + self.path)
+        resp = requests.get('http://localhost:8000' + self.path, headers=headers)
         self.wfile.write(json.dumps(resp.json()).encode(encoding='utf_8'))
 
+
+    def do_POST(self):
+        self.send_response(200)
+
+        if self.path == '/api/add-one/':
+            # if user wants to increase `count` by one
+            # this will inject a new header `Authorization` to headers
+            headers = {
+                'Authorization': '123456',
+            }
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            resp = requests.post(
+                url='http://localhost:8000/api/add-one/',
+                headers=headers,
+            )
+            self.wfile.write(json.dumps(resp.json()).encode('utf-8'))
+
+        else:
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            resp = requests.post(
+                'http://localhost:8000' + self.path,
+            )
+            self.wfile.write(json.dumps(resp.json()).encode('utf-8'))
 
 try:
     httpd = socketserver.TCPServer(('', 9090), MyProxy)
