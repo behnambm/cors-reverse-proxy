@@ -62,8 +62,3 @@ This server will be listening on port `9090` & redirect all get requests to `htt
 `/api/add-one/`
 
 ![increase-count](https://user-images.githubusercontent.com/26994700/139604736-68a12618-b285-477f-8244-02bbd2cdc98d.png)
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f5ef97a5a4941b851c8b2d0cab16f73110b39ef4
